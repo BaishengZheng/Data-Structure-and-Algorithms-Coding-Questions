@@ -1,13 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-/*
- * To execute Java, please define "static void main" on a class
- * named Solution.
- *
- * If you need more classes, simply define them inline.
- */
-
 class Solution {
     public static void main(String[] args) {
         MyStringBuilder sb = new MyStringBuilder();
@@ -36,8 +29,8 @@ class MyStringBuilder {
             return;
         }
 
-        if (isOverFlowAfterAppend(str)) {
-            resize(index + str.length() - 1);
+        if (this.isOverFlowAfterAppend(str)) {
+            this.resize(index + str.length() - 1);
         }
 
         for (int i = 0; i < str.length(); i++, index++) {
