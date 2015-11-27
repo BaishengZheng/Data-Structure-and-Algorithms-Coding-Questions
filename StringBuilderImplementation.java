@@ -40,7 +40,7 @@ class MyStringBuilder {
 
     private boolean isOverFlowAfterAppend(String str) {
         if (str == null) return false;
-        return index + str.length() > this.array.length;// The last char cannot be place into array
+        return index + str.length() > this.array.length;// The last char cannot be placed into array
     }
 
     private void resize(int smallestSize) {
