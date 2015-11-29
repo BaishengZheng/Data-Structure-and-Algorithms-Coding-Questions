@@ -27,6 +27,61 @@ as "[1,2,3,null,null,4,5]"
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+// Recursive solution using pre-order traversal
+public class Codec {
+
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+        StringBuilder sb = new StringBuilder();
+        serialize(root, sb);
+        return sb.toString();
+    }
+    
+    private void serialize(TreeNode root, StringBuilder sb) {
+        if (root == null) {
+            sb.append("# ");
+            return;
+        }
+        
+        sb.append(root.val + " ");
+        serialize(root.left, sb);
+        serialize(root.right, sb);
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+        if (data == null || data.length() == 0) return null;
+        Queue<String> q = deserializeHelper(data, " ");
+        return deserialize(q);
+    }
+    
+    private Queue<String> deserializeHelper(String data, String token) {
+        Queue<String> q = new LinkedList<String>();
+        String[] strs = data.split(token);
+        for (String str : strs) {
+            q.add(str);
+        }
+        return q;
+    }
+    
+    private TreeNode deserialize(Queue<String> q) {
+        if (q.isEmpty()) return null;
+        
+        String val = q.poll();
+        if (val.equals("#")) {
+            return null;
+        } else {
+            TreeNode node = new TreeNode(Integer.parseInt(val));
+            node.left = deserialize(q);
+            node.right = deserialize(q);
+            return node;
+        }
+    }
+}
+
+ 
+// Iterative solution using binary tree level order traversal
 public class Codec {
 
     // Encodes a tree to a single string.
