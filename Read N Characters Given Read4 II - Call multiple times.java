@@ -48,7 +48,8 @@ public class Solution extends Reader4 {
     }
 }
 
-// Another solution could be using a queue as the buffer so we don't need to care much about the offset for the buffer(using array), but it will cost more as it need to copy characters into queue first and then copy into buf
+// Another solution could be using a queue as the buffer so we don't need to care much about the offset for 
+// the buffer(using array), but it will cost more as it need to copy characters into queue first and then copy into buf
 
 public class Solution extends Reader4 {
     /**
