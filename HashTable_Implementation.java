@@ -3,17 +3,17 @@ import java.util.ArrayList;
 public class HasherTest {
 
 	public static void main(String[] args) {		
-		Dummy bob = new Dummy("Bob", 20);
-		Dummy jim = new Dummy("Jim", 25);
+		Dummy james = new Dummy("James", 20);
+		Dummy jimmy = new Dummy("Jimmy", 25);
 		Dummy alex = new Dummy("Alex", 30);
-		Dummy tim = new Dummy("Tim", 35);
-		Dummy maxwell = new Dummy("Maxwell", 40);
-		Dummy john = new Dummy("John", 45);
+		Dummy tom = new Dummy("Tom", 35);
+		Dummy max = new Dummy("Max", 40);
+		Dummy jack = new Dummy("Jack", 45);
 		Dummy julie = new Dummy("Julie", 50);
-		Dummy christy = new Dummy("Christy", 55);
-		Dummy tim2 = new Dummy("Tim", 100); // This should replace the first "tim"
+		Dummy chris = new Dummy("Chris", 55);
+		Dummy tom2 = new Dummy("Tom", 75); // This should replace the first "tom"
 		
-		Dummy[] dummies = {bob, jim, alex, tim, maxwell, john, julie, christy, tim2};
+		Dummy[] dummies = {james, jimmy, alex, tom, max, jack, julie, chris, tom2};
 		
 		/* Test: Insert Elements. */
 		Hasher<String, Dummy> hash = new Hasher<String, Dummy>(3);
@@ -106,7 +106,7 @@ class Hasher<K, V> {
 	
 	public void printTable() {
 		for (int i = 0; i < array.size(); i++) {
-			String s = array.get(i) == null ? "" : array.get(i).printForward();
+			String s = array.get(i) == null ? "" : array.get(i).printLinkedNotes();
 			System.out.println(i + ": " + s);
 		}
 	}
@@ -121,10 +121,10 @@ class Hasher<K, V> {
 			value = v;
 		}
 		
-		public String printForward() {
+		public String printLinkedNodes() {
 			String data = "(" + key + "," + value + ")";
 			if (next != null) {
-				return data + "->" + next.printForward();
+				return data + "->" + next.printLinkedNodes();
 			} else {
 				return data;
 			}
