@@ -76,3 +76,7 @@ class PartialSum {
     public ListNode sum = null;
     public int carry = 0;
 }
+
+// Another solution to this question could use two stacks, but it might use a lot space.
+// And also if the number is not very large and the result is not very large, we could change one linked list 
+// into one number, and then sum these two numbers, at the end just change the result number back into a linked list
