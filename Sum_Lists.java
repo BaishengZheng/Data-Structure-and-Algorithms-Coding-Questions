@@ -36,7 +36,7 @@ public class Solution {
         
         PartialSum sum = helper(l1.next, l2.next);
         
-        int value = sum.carry + l1.value, l2.value;
+        int value = sum.carry + l1.value + l2.value;
         
         ListNode res = insertBefore(sum.sum, value % 10);
         
